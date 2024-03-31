@@ -7,14 +7,11 @@ const year = document.getElementById('year');
 const loading = document.getElementById('loading');
 
 const marriedTime = new Date(`April 20 2024 09:00:00`);
-console.log(marriedTime);
 
 // Update countdown time
 function updateCountdown() {
     const currentTime = new Date();
-    console.log(currentTime);
     const diff = marriedTime - currentTime;
-    console.log(diff);
 
     const d = Math.floor(diff / 1000 / 60 / 60 / 24);
     const h = Math.floor(diff / 1000 / 60 / 60) % 24;
@@ -27,12 +24,6 @@ function updateCountdown() {
     minutes.innerHTML = m < 10 ? '0' + m : m;
     seconds.innerHTML = s < 10 ? '0' + s : s;
 }
-
-// Show spinner before countdown
-setTimeout(() => {
-    loading.remove();
-    countdown.style.display = 'flex';
-}, 1000);
 
 // Run every second
 setInterval(updateCountdown, 1000);
